@@ -32,7 +32,12 @@ def character_count(book_text):
     "w" : 0,
     "x" : 0,
     "y" : 0,
-    "z" : 0
+    "z" : 0,
+    "æ" : 0,
+    "â" : 0,
+    "ê" : 0,
+    "ë" : 0,
+    "ô" : 0
      }
     
     for char in new_text:
@@ -40,3 +45,17 @@ def character_count(book_text):
             character_num[char] += 1
 
     return character_num
+
+def sort_on(dict):
+    return dict["count"]
+
+def sort_character_count(book_dict):
+    book_list = []
+
+
+    for char in book_dict:
+        book_list.append({"char" : char, "count" : book_dict[char]})
+    
+    book_list.sort(key=sort_on, reverse=True)
+
+    return book_list
